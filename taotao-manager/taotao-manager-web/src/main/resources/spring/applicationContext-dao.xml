@@ -8,7 +8,6 @@
 	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 
-    <!-- 数据库连接池 -->
     <!-- 加载配置文件 -->
     <context:property-placeholder location="classpath:resource/db.properties"/>
     <!-- 数据库连接池 -->
@@ -23,11 +22,13 @@
     </bean>
     <!-- 配置sqlsessionFactory-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!-- 这里需要注入的属性有dataSource和mapper的总配置文件 -->
         <property name="configLocation" value="classpath:mybatis/SqlMapConfig.xml"></property>
         <property name="dataSource" ref="dataSource"></property>
     </bean>
     <!-- 配置扫描包，加载mapper代理对象-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!--<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>-->
         <property name="basePackage" value="com.taotao.mapper"></property>
     </bean>
 </beans>
