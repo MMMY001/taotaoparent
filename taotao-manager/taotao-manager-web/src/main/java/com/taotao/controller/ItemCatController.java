@@ -25,25 +25,27 @@ public class ItemCatController {
     @Autowired
     private ItemCatService itemCatService;
 
-    @SuppressWarnings({"rawtypes","unchecked"})
+    /**
+     * 商品类目选择功能
+     *
+     * @param parentId
+     * @return
+     * @throws Exception
+     */
+    @SuppressWarnings({"rawtypes", "unchecked"})
     @RequestMapping("/list")
     @ResponseBody
-    public List categoryList(@RequestParam(value = "id",defaultValue = "0") long parentId) throws Exception {
-        List catList=new ArrayList();
+    public List categoryList(@RequestParam(value = "id", defaultValue = "0") long parentId) throws Exception {
+        List catList = new ArrayList();
         // 查询数据库
-        List<TbItemCat> list=itemCatService.getItemCatList(parentId);
-        for (TbItemCat tbItemCat:list){
-            Map node=new HashMap<>();
-            node.put("id",tbItemCat.getId());
-            node.put("text",tbItemCat.getName());
-            node.put("state",tbItemCat.getIsParent()?"closed":"open");
+        List<TbItemCat> list = itemCatService.getItemCatList(parentId);
+        for (TbItemCat tbItemCat : list) {
+            Map node = new HashMap<>();
+            node.put("id", tbItemCat.getId());
+            node.put("text", tbItemCat.getName());
+            node.put("state", tbItemCat.getIsParent() ? "closed" : "open");
             catList.add(node);
         }
-        return  catList;
-
-
+        return catList;
     }
-
-
-
 }
