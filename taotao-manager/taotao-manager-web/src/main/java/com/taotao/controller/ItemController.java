@@ -33,9 +33,11 @@ public class ItemController {
     @ResponseBody
     public EuiDataGridResult getItem(Integer page, Integer rows) {
         EuiDataGridResult result = itemService.getItemList(page, rows);
-        System.out.println("controller"+result.getRows());
+        System.out.println("controller" + result.getRows());
         return result;
     }
+
+
 
 
 }

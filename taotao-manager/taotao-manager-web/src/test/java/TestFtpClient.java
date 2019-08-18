@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.UUID;
 
 /**
  * FileName: TestFtpClient
@@ -17,7 +18,7 @@ public class TestFtpClient {
 
     @Test
     public void testFtp() throws IOException {
-        // 创建对象
+      /*  // 创建对象
         FTPClient ftpClient = new FTPClient();
         // 连接
         ftpClient.connect("144.168.60.58", 21);
@@ -33,7 +34,8 @@ public class TestFtpClient {
         ftpClient.storeFile("test.jpg", inputStream);
 
         // 关闭连接
-        ftpClient.logout();
+        ftpClient.logout();*/
+        System.out.println(UUID.randomUUID());
 
     }
 

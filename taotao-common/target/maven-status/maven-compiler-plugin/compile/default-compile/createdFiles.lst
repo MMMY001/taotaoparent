@@ -1,0 +1,6 @@
+com\taotao\common\utils\JsonUtils.class
+com\taotao\common\utils\FtpUtil.class
+com\taotao\common\pojo\EuiDataGridResult.class
+com\taotao\common\utils\IDUtils.class
+com\taotao\common\utils\TaotaoResult.class
+com\taotao\common\utils\PictureResult.class
